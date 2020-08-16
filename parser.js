@@ -1,12 +1,12 @@
 const nightmare = require('nightmare')()
 require('dotenv').config()
+const schedule = require('node-schedule')
 
 const sgMail = require('@sendgrid/mail');
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 ;
 
 const checkPrice = async () => {
-    async;dlkfja;s
     try {
         const priceString = await nightmare
     .goto("https://www.amazon.com/BenQ-Auto-Dimming-Adjustment-ScreenBar-Plus/dp/B07DP7RYXV")
@@ -43,4 +43,5 @@ const sendEmails = (subject, body) => {
       sgMail.send(msg)
 }
 
-checkPrice()
+
+const j = schedule.scheduleJob('11 23 * * *', checkPrice)
